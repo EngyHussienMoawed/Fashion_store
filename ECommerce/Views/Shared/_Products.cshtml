@@ -1,0 +1,121 @@
+﻿
+@model List<Product>
+
+<div class="container-overlay-products" >
+<div class="row">
+    @foreach(var i in Model){
+
+<div class="col-lg-4 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
+       <div class="product "> <img src="\Images\@i.Image" alt="Card image">
+           <ul class="d-flex align-items-center justify-content-center list-unstyled icons hover-content">
+               <li class="icon"><a href="/Home/ProductDetails/@i.Id" class="fa fa-eye"></a></li>
+@*               <li class="icon mx-3"><a><span class="fa fa-heart"></span></a></li>
+*@               <li class="icon"><a href="/Home/ProductDetails/@i.Id" class="fa fa-shopping-cart"></a></li>
+           </ul>
+        
+
+       </div>
+       <div class="tag bg-black">sale</div>
+       <div class="title pt-4 pb-1">@i.Name</div>
+       
+       <div class="price">$ @i.Price</div>
+   </div>
+   }
+ </div>
+</div>
+ 
+
+
+
+
+
+
+
+@*
+  <div class="row">
+       @foreach(var i in Model){
+               
+                    <div class="men-item-carousel">
+                        <div class="owl-men-item owl-carousel">
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="/Home/ProductDetails/@i.Id"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="/Home/ProductDetails/@i.Id"><i class="fa fa-star"></i></a></li>
+                                            <li><a href="/Home/ProductDetails/@i.Id"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+
+                                    <img src="/Images/@i.Image" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>@i.Name</h4>
+                                    <span>@i.Price</span>
+                                  
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                       
+                            }
+                            </div>*@
+@*                            ///////////////////
+*@@*<div class="container-overlay-products" >
+        
+        <div class="row">
+            <div class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
+                <div class="product"> <img src="\Images\@i.Image" alt="Card image">
+                    <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
+                        <li class="icon"><span class="fas fa-expand-arrows-alt"></span></li>
+                        <li class="icon mx-3"><span class="far fa-heart"></span></li>
+                        <li class="icon"><span class="fas fa-shopping-bag"></span></li>
+                    </ul>
+                </div>
+                <div class="tag bg-black">sale</div>
+                <div class="title pt-4 pb-1">@i.Name</div>
+                
+                <div class="price">$ @i.Price</div>
+            </div>
+            <div class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
+                <div class="product"> <img src="https://images.pexels.com/photos/6764040/pexels-photo-6764040.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
+                        <li class="icon"><span class="fas fa-expand-arrows-alt"></span></li>
+                        <li class="icon mx-3"><span class="far fa-heart"></span></li>
+                        <li class="icon"><span class="fas fa-shopping-bag"></span></li>
+                    </ul>
+                </div>
+                <div class="tag bg-black">out of stock</div>
+                <div class="title pt-4 pb-1">Denim </div>
+                <div class="price">$ 55.0</div>
+            </div>
+            <div class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
+                <div class="product"> <img src="https://images.pexels.com/photos/6764040/pexels-photo-6764040.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
+                        <li class="icon"><span class="fas fa-expand-arrows-alt"></span></li>
+                        <li class="icon mx-3"><span class="far fa-heart"></span></li>
+                        <li class="icon"><span class="fas fa-shopping-bag"></span></li>
+                    </ul>
+                </div>
+                <div class="tag bg-black">new</div>
+                <div class="title pt-4 pb-1"> Denim</div>
+               
+                <div class="price">$ 70.0</div>
+            </div>
+            <div class="col-lg-3 col-sm-6 d-flex flex-column align-items-center justify-content-center product-item my-3">
+                <div class="product"> <img src="https://images.pexels.com/photos/6764040/pexels-photo-6764040.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="">
+                    <ul class="d-flex align-items-center justify-content-center list-unstyled icons">
+                        <li class="icon"><span class="fas fa-expand-arrows-alt"></span></li>
+                        <li class="icon mx-3"><span class="far fa-heart"></span></li>
+                        <li class="icon"><span class="fas fa-shopping-bag"></span></li>
+                    </ul>
+                </div>
+                <div class="title pt-4 pb-1">Denim</div>
+               
+                <div class="price">$ 60.0</div>
+            </div>
+        </div>    
+ </div>
+    
+    <!-- overlay products ends here -->
+*@

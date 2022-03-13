@@ -1,0 +1,286 @@
+﻿@model List<Category>
+
+
+<!-- ***** Main Banner Area Start ***** -->
+    <div class="main-banner" id="top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="left-content">
+                        <div class="thumb">
+                            <div class="inner-content">
+                                <h4 style="/*margin-left:30px;*/font-size:40px;">We Are Passionis</h4>
+                                <div class="main-border-button">
+                                </div>
+                            </div>
+                            <img src="/Images/left-banner-image.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="right-content">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>Women</h4>
+                                            <span>Best Clothes For Women</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>Women</h4>
+                                                <p> women's clothing is line of representation of woman's body confidence which make her stylish.</p>
+                                                <div class="main-border-button">
+                                                    <a href="#women">Discover Women</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="/Images/baner-right-image-01.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>Men</h4>
+                                            <span>Best Clothes For Men</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>Men</h4>
+                                                <p>The latest tips and advice for men on style, grooming, fitness and more.</p>
+                                                <div class="main-border-button">
+                                                    <a href="#men">Discover Men</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="/Images/baner-right-image-02.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                        <div class="inner-content">
+                                            <h4>Kids</h4>
+                                            <span>Best Clothes For Kids</span>
+                                        </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <h4>Kids</h4>
+                                                <p> Young children can now enjoy a varied and extensive range of fashion clothes.</p>
+                                                <div class="main-border-button">
+                                                    <a href="#kids">Discover Kids</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <img src="/Images/baner-right-image-03.jpg">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+                                <div class="right-first-image">
+                                    <div class="thumb">
+                                      <div class="inner-content">
+                                          <h4>All</h4>
+                                          <span>Every thing here</span>
+                                          </div>
+                                        <div class="hover-content">
+                                            <div class="inner">
+                                                <img src="~/Images/baner-right-image-04.jpg" />
+                                           
+                                            </div>
+                                        </div>
+                                        <img src="/Images/baner-right-image-04.jpg">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Main Banner Area End ***** -->
+
+
+@*    
+<h2 class ="mt-5"  style="color:rgb(78 115 223);">Select Category</h2>
+<br />
+
+<select id="categories" class ="form-control" onchange="getAll()" >
+    @foreach (var item in Model)
+   {
+        <option value="@item.Id">@item.Name</option>       
+   }
+</select>
+
+<div id = "Products" ></div>
+<script>
+    
+    function getAll(){
+        var Id=$("#categories").val();
+        
+        $.ajax(
+            {
+                url: `/Home/Products?CatId=${Id}`,
+                
+                success: function(result){
+                    
+                    $("#Products").html(result);
+                }
+            }
+         );
+    }
+</script>
+*@
+
+
+
+ <!-- ***** Men Area Starts ***** -->
+    <section class="section" id="men">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>Men's Latest</h2>
+                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="men-item-carousel">
+                        <div class="owl-men-item owl-carousel">
+                            
+                                @foreach(var item in Model[1].Products){
+
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="/Home/ProductDetails/@item.Id"><i class="fa fa-eye"></i></a></li>
+                                      
+                                            <li><a href="/Home/ProductDetails/2"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+
+                                    <img src="/Images/@item.Image" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>@item.Name</h4>
+                                    <span>@item.Price</span>
+                                
+                                </div>
+                            </div>
+                            }
+
+                            </div>
+                            </div>
+                            </div>
+                          
+            </div>
+        </div>
+    </section>
+    <!-- ***** Men Area Ends ***** -->
+
+    <!-- ***** Women Area Starts ***** -->
+    <section class="section" id="women">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>Women's Latest</h2>
+                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="women-item-carousel">
+                        <div class="owl-women-item owl-carousel">
+                                @foreach(var item in Model[0].Products){
+
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="/Home/ProductDetails/@item.Id"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="/Home/ProductDetails/5"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <img src="/Images/@item.Image" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>@item.Name</h4>
+                                    <span>@item.Price</span>
+                              
+                                </div>
+                            </div>
+                            }
+                           
+                </div>
+                </div>
+                </div>
+      
+                </div>
+            </div>
+      
+    </section>
+    <!-- ***** Women Area Ends ***** -->
+
+    <!-- ***** Kids Area Starts ***** -->
+    <section class="section" id="kids">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="section-heading">
+                        <h2>Kid's Latest</h2>
+                        <span>Details to details is what makes Hexashop different from the other themes.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="kid-item-carousel">
+                        <div class="owl-kid-item owl-carousel">
+                                   @foreach(var item in Model[2].Products){
+
+                            <div class="item">
+                                <div class="thumb">
+                                    <div class="hover-content">
+                                        <ul>
+                                            <li><a href="/Home/ProductDetails/@item.Id"><i class="fa fa-eye"></i></a></li>
+                                            <li><a href="/Home/ProductDetails/9"><i class="fa fa-shopping-cart"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <img src="/Images/@item.Image" alt="">
+                                </div>
+                                <div class="down-content">
+                                    <h4>@item.Name</h4>
+                                    <span>@item.Price</span>
+                                
+                                </div>
+                            </div>
+                          
+                            }
+                           </div>
+                           </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Kids Area Ends ***** -->
+
+
+
+
